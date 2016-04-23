@@ -1,0 +1,94 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<div class="content">
+
+ <div class="container">
+ {% block portada %}
+ {{ include('PortalBundle:Home:portada.html.twig') }}
+ {% endblock %}
+ </div>
+
+ {% block menu %}
+ {{ render(controller('PortalBundle:Categoria:listarCategorias')) }}
+ {% endblock %}
+
+ {% block newstick %}
+ {{ render(controller('PortalBundle:Backend:contenidoNewstick')) }}
+ {% endblock %}
+
+
+ <div class="container">
+  <div class="row">
+   <div class="span12">
+    {% block carousel %}
+    {{ render(controller('PortalBundle:Backend:contenidoCarousel')) }}
+    {% endblock %}
+   </div>
+   <div class="span12">
+    <ul class="thumbnails">
+	 <li>
+	  <div class="thumbnail">
+	   <img src="http://localhost/wordpress/wp-content/uploads/2016/02/06012016003731.gif" alt="No imagen">
+	  </div>
+	 </li>
+    </ul>
+   </div>
+  </div>
+</div>
+
+  <div class="container">
+
+		<div class="row">
+		<div class="span3 pull-right">
+		{% block panlederecho %}
+		{{ include('PortalBundle:Paneles:panelder.html.twig') }}
+		{% endblock %}
+		</div>
+
+		
+		<div class="span9">
+	
+			{% set categ = '' %}
+
+			{% for nota in notas %}	
+
+			{% if categ != nota.categoria %}
+
+			{% set categ = nota.categoria %}
+			<div class="page-header span9"><h3>{{ categ }}</h3></div>		
+
+			{% endif %}
+
+			<div class="span4">
+			{% block contenido %}
+			{{ include('PortalBundle:Home:contenido.html.twig', {'nota':nota} ) }}
+			{% endblock %}
+			</div>
+
+			{% endfor %}
+			
+			
+
+		
+		</div>
+		
+   </div> <!-- container -->
+
+
+</div> <!-- content -->
+
+{% block footer %}
+{{ include('PortalBundle:Home:footer.html.twig') }}
+{% endblock %}
+
+
+{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('bundles/portal/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/portal/css/font-awesome.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/portal/css/boot-business.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/portal/css/carousel.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('bundles/portal/css/newstick.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'PortalBundle:Home:index.html.twig' %}
+{% block body %}
+
+<div class="content">
+
+{% block portada %}
+{{ include('PortalBundle:Home:portada.html.twig') }}
+{% endblock %}
+
+{% block menu %}
+{{ render(controller('PortalBundle:Categoria:listarCategorias')) }}
+{% endblock %}
+
+{% block newstick %}
+{{ render(controller('PortalBundle:Nota:obtenerNotas')) }}
+{% endblock %}
+
+</br>
+</br>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="span9">
+      <div class="page-header">
+      <h1>{{ nota.titulo }}
+      </br>
+      <small>Publicado el {% if nota.fecha %}{{ nota.fecha|date('Y-m-d') }}{% endif %}</small>
+      </h1>
+      </div>         
+              
+      {{ nota.contenido | raw }}                                               
+               
+      <h1><small>{{ nota.categoria }}</small></h1>
+      
+    </div>
+
+
+    <div class="span3">
+    {% block panlederecho %}
+    {{ include('PortalBundle:Paneles:panelder.html.twig') }}
+    {% endblock %}
+    </div>
+
+
+  </div> <!-- row -->
+
+</div> <!-- container -->
+
+</div> <!-- content -->
+
+
+  
+{# opciones si soy administrador o autor   
+
+<div class="span6">
+               
+            
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('nota_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('nota_edit', { 'id': nota.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    #} 
+
+{% block footer %}
+{{ include('PortalBundle:Home:footer.html.twig') }}
+{% endblock %}
+
+{% endblock %}

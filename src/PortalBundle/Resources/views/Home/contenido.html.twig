@@ -1,0 +1,22 @@
+{% block contenido %}
+<!-- Start: NOTA -->
+            <ul class="thumbnails">
+              <li class="span4">
+                  <div class="thumbnail">
+                  <img src="{{ path('home') ~ '../../web/uploads/documents/' ~ nota.imagendestacada }}" alt="No imagen">
+                  <div class="caption span4">
+                    <h5>{{nota.titulo | upper }}</h5>
+                    <p>
+                      {{nota.contenido | striptags }}
+                    </p>
+                  </div>
+                  <div class="widget-footer">
+                    <p>
+                      <a href="{{ path('home_nota', { 'id': nota.id }) }}" class="btn btn-primary">LEER MÁS</a>&nbsp;
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+      <!-- End: NOTA-->
+{% endblock %}

@@ -1,0 +1,55 @@
+.newsticker {
+  background: #e58e8a;
+  #border-radius: 5px;
+  color: #402726;
+  cursor: default;
+  font-family: verdana;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 15.6px;
+  padding: 0 10px 0 10px;
+  height: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsticker:hover {
+  background: #ff9e9a;
+}
+
+.newsticker .newsticker-list {
+  position: absolute;
+  top: 7.2px;
+  left: 50px;
+}
+
+.newsticker .newsticker-list .newsticker-item {
+  height: 30px;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.newsticker .titulo-ticker {
+  padding-top: 7.2px !important;
+  color: white;
+  background-color: red;
+  position: absolute;
+  height: 30px !important;
+  width: 90px !important;
+  left: 0;
+  text-align: center;
+}
+
+.newsticker .link-ticker {
+  padding-top: 0;
+  color: rgb( 150, 50, 50 );
+  position: absolute;
+  left: 50px;
+  text-align: center;
+}
+
+
+
+
+.clearfix{zoom:1;}
+.clearfix:after{content:'.';display:block;clear:both;visibility:hidden;height:0;font-size:0;}

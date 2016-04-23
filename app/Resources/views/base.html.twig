@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Mi portal{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset('bundles/portal/js/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/portal/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/portal/js/boot-business.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/portal/js/jquery.carouFredSel-6.2.0-packed.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/portal/js/carousel.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/portal/js/newstick.js') }}" type="text/javascript"></script>
+        {% endblock %}
+    </body>
+</html>

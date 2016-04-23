@@ -1,0 +1,22 @@
+{% block carousel %}
+<div id="outer">
+      <div id="inner">
+        
+        <div id="carousel-fc" class="micarousel">
+        {% for nota in notas %}
+          <img src="{{ path('home') ~ '../../web/uploads/documents/' ~ nota.imagendestacada}}"/>
+        {% endfor %}  
+        </div>
+
+        <div id="carousel-txt" class="micarousel">
+        {% for nota in notas %}
+        <a href="{{ path('home_nota', { 'id': nota.id }) }}">{{ nota.titulo | upper }}</a>
+        {% endfor %} 
+        </div>
+
+        <div id="overlay"></div>
+        <a href="#" id="prev">&lsaquo;</a>
+        <a href="#" id="next">&rsaquo;</a>
+      </div>
+</div>         
+{% endblock %}

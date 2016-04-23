@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Nota list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Contenido</th>
+                <th>Categoria</th>
+                <th>Destacar</th>
+                <th>Publicar</th>
+                <th>Fecha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nota in notas %}
+            <tr>
+                <td><a href="{{ path('nota_show', { 'id': nota.id }) }}">{{ nota.id }}</a></td>
+                <td>{{ nota.titulo }}</td>
+                <td>{{ nota.contenido }}</td>
+                <td>{{ nota.categoria }}</td>
+               <td>{{ nota.destacar }}</td>
+                <td>{{ nota.publicar }}</td>
+                <td>{% if nota.fecha %}{{ nota.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('nota_show', { 'id': nota.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('nota_edit', { 'id': nota.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('nota_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

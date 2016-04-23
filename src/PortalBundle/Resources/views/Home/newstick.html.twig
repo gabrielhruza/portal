@@ -1,0 +1,21 @@
+{% block newstick %}
+
+<!-- Recientes -->
+</br>
+
+<div class="newsticker container clearfix">
+  <div class="titulo-ticker"> Recientes</div>
+    <ul class="newsticker-list">
+        {% for notasnewstick in notasnewsticks %}
+        <li class='newsticker-item'>
+          <a class="link-ticker" href="{{ path('home_nota', { 'id': notasnewstick.id }) }}">{{ notasnewstick.titulo }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</br>
+</br>
+<!-- endRecientes-->
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Archivo list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Path</th>
+                <th>Path</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for archivo in archivos %}
+            <tr>
+                <td><a href="{{ path('archivo_show', { 'id': archivo.id }) }}">{{ archivo.id }}</a></td>
+                <td>{{ archivo.name }}</td>
+                <td>{{ archivo.path }}</td>
+                <td><img src="{{ path('home') ~ '../uploads/documents/' ~ archivo.path }}"</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('archivo_show', { 'id': archivo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('archivo_edit', { 'id': archivo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('archivo_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    appcat.categoria_controller:
+       class: PortalBundle\Controller\CategoriaController
+
+#        class: PortalBundle\Controller\CategoriaController	
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+#servicio para instanciar un objeto Categoria    
+    verCategoriaService:
+        class: PortalBundle\Entity\Categoria	

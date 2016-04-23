@@ -1,0 +1,32 @@
+{% block menu %}
+
+ <!-- Start: Navigation wrapper -->
+      <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a href="{{ path('home') }}" class="brand brand-bootbus">     INICIO</a>
+          
+
+
+
+            <!-- Below button used for responsive navigation -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <div class="nav-collapse collapse">        
+            <ul class="nav pull-right">
+            {% for categoria in categorias %}
+            <li><a href="{{ path('home_categoria' , { 'id' : categoria.id } ) }}">{{ categoria.nombre | upper }}</a></li>
+            {% endfor %}
+            </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- End: Navigation wrapper -->   
+
+{% endblock %}

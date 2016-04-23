@@ -1,0 +1,33 @@
+{% extends 'PortalBundle:Home:index.html.twig' %}
+{% block body %}
+ {{ tinymce_init() }}
+
+<h1>Crear nueva nota</h1>
+</hr>
+</br>
+</br>
+
+    <div class="container-fluid"
+    <div class="row">
+    <div class="span2">
+    </div>
+
+    <div class="row-fluid">
+
+    {{ form_start(form) }}
+    <div class="span8">
+    
+    {{ form_widget(form) }}
+    <input type="submit" value="Create" />
+
+    {{ form_end(form) }}
+    
+    </div>
+    </div>
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('nota_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
